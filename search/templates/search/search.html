@@ -1,0 +1,35 @@
+{% extends 'Home.html' %}
+{% block sub_content%}
+    <div class="row mb-4">
+        {% if query %}
+        <div class="col-12">
+            Result   <b> {{ query }}. </b>
+        </div>
+        {%else%}
+        <div class="col-12 col-md-12 align-center">
+            <form class="form" action="{% url 'search'%}" method="get">
+                <div class="input-group">
+                  <input class="form-control"
+                         type="search" name='q' placeholder="Search" aria-label="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-success " type="submit">Search</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+
+        {%endif%}
+    </div>
+    <div class="row">
+    {%for object in product_list%}
+
+        <div class="col">
+            {% include 'public/cords.html'  %}
+        </div>
+    {%endfor%}
+    </div>
+
+{% endblock %}
+
+

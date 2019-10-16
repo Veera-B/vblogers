@@ -1,0 +1,8 @@
+#Text back file
+*.bak
+#Database
+*.sqlite
+
+.env
+ db/sqlite3
+ staticfiles/

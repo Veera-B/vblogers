@@ -1,0 +1,14 @@
+{% extends 'Home.html' %}
+{% block sub_content%}
+
+    <div class="row">
+    {%for object in product_list%}
+
+        <div class="col">
+            {% include 'public/cords.html'  %}
+        </div>
+    {%endfor%}
+    </div>
+
+{% endblock %}
+

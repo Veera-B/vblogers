@@ -1,0 +1,1 @@
+web: gunicorn vblogers.wsgi --log-file -

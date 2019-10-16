@@ -1,0 +1,23 @@
+{% extends 'Home.html' %}
+{% load static %}
+
+{% block sub_content %}
+    <div class="col-12">
+               {% include 'carts/cart_update.html' with product=object cart=cart%}
+    </div>
+    <div class="card" style="width:20rem;">
+        {%if object.image%}
+            <img class="card-img-top" src="{{object.image.url}}" alt="{{object.product_name}}">
+        {%endif%}
+
+        <div class="card-body">
+            <h4 class="card-title">{{object.product_name}}</h4>
+            <p class="card-text">{{object.description}}</p>
+            <a href="{%url 'products'%}" class="btn btn-primary">Go</a>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+

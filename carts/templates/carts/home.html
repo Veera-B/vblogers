@@ -1,0 +1,47 @@
+{% extends 'Home.html'%}
+{% block sub_content %}
+
+{% if cart.products.exists %}
+<h3>Carts!</h3>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">
+        Action
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for product in cart.products.all %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>
+         <a href="{{ product.get_absolute_url}}"> {{product.product_name}}</a>
+
+      </td>
+      <td>{{product.price}}</td>
+      <td>
+        <form action="{% url 'update' %}" method="post" class="form">
+            {% csrf_token %}
+            <input type="text" name="product_id" style="display:none" value="{{product.id}}" />
+            <button class="btn btn-danger" type="submit">Remove?</button>
+        </form>
+      </td>
+    </tr>
+
+  {% endfor %}
+    <tr>
+        <td>Sub Total:{{cart.sub_total}}</td>
+    </tr>
+    <tr>
+        <td>Total:{{cart.total}}</td>
+    </tr>
+  </tbody>
+</table>
+{% else %}
+<h3>Cart is empty!</h3>
+{% endif %}
+{% endblock %}

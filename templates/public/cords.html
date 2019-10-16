@@ -1,0 +1,12 @@
+{% load static %}
+        <div class="card" style="width:10rem;">
+            {% if object.image%}
+                <img class="card-img-top" src="{{object.image.url}}" alt="">
+            {% endif%}
+            <div class="card-body">
+                <h4 class="card-title">{{object.product_name}}</h4>
+                <a href="{{object.get_absolute_url}}" class="btn btn-primary">Go</a>
+                <a href="{% url 'slug_view' object.slug  %}" class="btn btn-warning">Short url</a>
+            </div>
+        </div>
+

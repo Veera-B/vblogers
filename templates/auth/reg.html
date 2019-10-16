@@ -1,0 +1,14 @@
+{% extends '../Home.html' %}
+{% block sub_content %}
+<div class="row">
+    <div class="col-5">
+        <form method="post" class="form">
+            {% csrf_token %}
+            {{form}}
+            </br>
+            <button class="btn btn-primary">Signup</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
